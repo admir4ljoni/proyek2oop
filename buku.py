@@ -3,9 +3,14 @@ class Buku:
         self.kode = kode
         self.judul = judul
         self.penulis = penulis
-        self.tahun = int(tahun)
+        self.tahun = tahun
     
     def ke_baris(self):
         return f"{self.kode} | {self.judul} | {self.penulis} | {self.tahun}"
+
+    @staticmethod
+    def dari_baris(baris):
+        bagian = baris.split("|").strip()
+        return Buku(bagian[0], bagian[1], bagian[2], int(bagian[3]))
 
     
