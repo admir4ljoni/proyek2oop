@@ -10,8 +10,10 @@ class Buku:
 
     @staticmethod
     def dari_baris(baris):
-        bagian = baris.split("|").strip()
+        hpsgaris = baris.split(" | ")
+        bagian = hpsgaris.strip()
         return Buku(bagian[0], bagian[1], bagian[2], int(bagian[3]))
+
 
     
 
