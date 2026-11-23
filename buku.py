@@ -6,12 +6,12 @@ class Buku:
         self.tahun = tahun
     
     def ke_baris(self):
-        return f"{self.kode} | {self.judul} | {self.penulis} | {self.tahun}"
+        return f"{self.kode} | {self.judul} | {self.penulis} | {self.tahun}/n"
 
     @staticmethod
     def dari_baris(baris):
-        hpskoma = baris.strip()
-        bagian = hpskoma.split(" | ")
+        hapus = baris.strip()
+        bagian = hapus.split(" | ")
         return Buku(bagian[0], bagian[1], bagian[2], int(bagian[3]))
 
 
