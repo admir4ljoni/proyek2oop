@@ -5,3 +5,7 @@ class Buku:
         self.penulis = penulis
         self.tahun = int(tahun)
     
+    def ke_baris(self):
+        return f"{self.kode} | {self.judul} | {self.penulis} | {self.tahun}"
+
+    
