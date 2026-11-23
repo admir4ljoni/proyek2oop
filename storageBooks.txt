@@ -1,0 +1,5 @@
+B001 | Laskar Pelangi | Andrea Hirata | 2005
+B002 | Bumi Manusia | Pramoedya A. Toer | 1980
+B003 | Negeri 5 Menara | A. Fuadi | 2009
+B004 | Perahu Kertas | Dee Lestari | 2009
+B005 | Sang Pemimpi | Andrea Hirata | 2006
