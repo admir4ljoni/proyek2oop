@@ -6,7 +6,7 @@ class Buku:
         self.tahun = tahun
     
     def ke_baris(self):
-        return f"{self.kode} | {self.judul} | {self.penulis} | {self.tahun}"
+        return f"{self.kode} | {self.judul} | {self.penulis} | {self.tahun}\n"
 
     @staticmethod
     def dari_baris(baris):
