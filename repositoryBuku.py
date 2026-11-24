@@ -8,8 +8,8 @@ class RepositoryBuku:
     # memuat buku
     def memuat(self):
         try: 
-            with open(self.nama_file, "read") as file:
-                for baris in f:
+            with open(self.nama_file, "r") as file:
+                for baris in file:
                     baris = baris.strip()
                     if baris == "":
                         continue
@@ -20,7 +20,7 @@ class RepositoryBuku:
 
     # menyimpan
     def simpan(self):
-        with open(self.nama_file, "write") as file:
+        with open(self.nama_file, "w") as file:
             for buku in self.data.values():
                 file.write(buku.ke_baris() + "\n")
 
@@ -28,7 +28,11 @@ class RepositoryBuku:
     def ada(self, kode):
         return kode in self.data
 
-    # ambil data
+    # mengambil semua buku
+    def semua(self):
+        return list(self.data.values)
+
+    # ambil salah satu data
     def ambil(self, kode):
         return self.data.get(kode)
 
