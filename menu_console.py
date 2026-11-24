@@ -20,11 +20,13 @@ class MenuConsole:
                 kode = input("Kode buku: ")
                 judul = input("Judul buku: ")
                 penulis = input("Penulis: ")
-                tahun = input("Tahun terbit: ")
+                tahun = int(input("Tahun terbit: "))
 
                 buku = Buku(kode, judul, penulis, tahun)
-                status, pesan = self.layanan.tambah_buku(buku)
-                print(pesan)
+                if self.layanan.tambah_buku(buku):
+                    print("Buku berhasil ditambahkan.")
+                else:
+                    print("Gagal menambah buku. Kode sudah ada.")
 
             elif pilih == "2":
                 kode = input("Masukkan kode buku: ")
@@ -43,17 +45,21 @@ class MenuConsole:
                     print("(Tekan enter jika tidak diubah)")
                     judul = input("Judul baru (" + buku.judul + "): ")
                     penulis = input("Penulis baru (" + buku.penulis + "): ")
-                    tahun = input("Tahun baru (" + buku.tahun + "): ")
+                    tahun_input = input("Tahun baru (" + str(buku.tahun) + "): ")
 
                     if judul == "":
                         judul = buku.judul
                     if penulis == "":
                         penulis = buku.penulis
-                    if tahun == "":
+                    if tahun_input == "":
                         tahun = buku.tahun
+                    else:
+                        tahun = int(tahun_input)
 
-                    status, pesan = self.layanan.ubah_buku(kode, judul, penulis, tahun)
-                    print(pesan)
+                    if self.layanan.ubah_buku(kode, judul, penulis, tahun):
+                        print("Data buku berhasil diubah.")
+                    else:
+                        print("Gagal mengubah data buku.")
                 else:
                     print("Buku tidak ditemukan.")
 
@@ -63,8 +69,10 @@ class MenuConsole:
                 if buku != None:
                     yakin = input("Hapus buku " + buku.judul + "? (y/n): ")
                     if yakin == "y" or yakin == "Y":
-                        status, pesan = self.layanan.hapus_buku(kode)
-                        print(pesan)
+                        if self.layanan.hapus_buku(kode):
+                            print("Buku berhasil dihapus.")
+                        else:
+                            print("Gagal menghapus buku.")
                     else:
                         print("Batal menghapus.")
                 else:
