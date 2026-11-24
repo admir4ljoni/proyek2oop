@@ -20,7 +20,12 @@ class MenuConsole:
                 kode = input("Kode buku: ")
                 judul = input("Judul buku: ")
                 penulis = input("Penulis: ")
-                tahun = int(input("Tahun terbit: "))
+
+                try:
+                    tahun = int(input("Tahun terbit: "))
+                except ValueError:
+                    print("Tahun harus berupa angka")
+                    continue
 
                 buku = Buku(kode, judul, penulis, tahun)
                 if self.layanan.tambah_buku(buku):
@@ -54,7 +59,11 @@ class MenuConsole:
                     if tahun_input == "":
                         tahun = buku.tahun
                     else:
-                        tahun = int(tahun_input)
+                        try:
+                            tahun = int(input("Tahun terbit: "))
+                        except ValueError:
+                            print("Tahun harus berupa angka")
+                            continue    
 
                     if self.layanan.ubah_buku(kode, judul, penulis, tahun):
                         print("Data buku berhasil diubah.")

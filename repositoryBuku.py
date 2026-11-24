@@ -30,7 +30,7 @@ class RepositoryBuku:
 
     # mengambil semua buku
     def semua(self):
-        return list(self.data.values)
+        return list(self.data.values())
 
     # ambil salah satu data
     def ambil(self, kode):
